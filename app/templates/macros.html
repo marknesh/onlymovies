@@ -1,0 +1,36 @@
+{%  extends 'base.html' %}
+
+
+{% block styles %}
+{{super()}}
+
+<link  rel="stylesheet" href="{{url_for('static', filename='css/index.css' ) }}">
+{% endblock %}
+{% macro displayMovieList(movie_list) %}
+<div class="row movie">
+
+    {% for movie in movie_list %}
+        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+            <img src="{{ movie.poster }}" alt="{{ movie.title }} poster" class="img-responsive">
+            <li class="text-center">
+                <a href="/movie/{{movie.id}}">
+                    {{ movie.title}}</a>
+            </li>
+        </div>
+
+    {% endfor %}
+    </div>
+
+{% endmacro %}
+
+
+
+<!-- Displaying reviews macro -->
+{% macro displayReviews(review_list) %}
+    {% for review in review_list %}
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 review-card">
+        <h2> {{ review.title}} </h2>
+        <p> {{ review.review | truncate(30) }}</p>
+    </div>
+    {% endfor %}
+{% endmacro %}
