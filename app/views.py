@@ -17,20 +17,20 @@ def index():
     now_showing=get_movies('now_playing')
 
 
-    
-    title="flask app"
+   
 
     search_movie=request.args.get('movie_query')
 
     if search_movie:
         return redirect(url_for('search',movie_name=search_movie))
     else:
-        return render_template('index.html',popular=popular,upcoming=upcoming,now_showing=now_showing,title=title)
+        return render_template('index.html',popular=popular,upcoming=upcoming,now_showing=now_showing)
 
 @app.route('/movie/<int:id>')
 def movie(id):
     movie=get_movie(id)
     video=get_video(id)
+    
     title=f'{movie.title}'
 
     reviews=Review.get_reviews(movie.id)

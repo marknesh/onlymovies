@@ -10,8 +10,8 @@
 <div class="row movie">
 
     {% for movie in movie_list %}
-        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
-            <img src="{{ movie.poster }}" alt="{{ movie.title }} poster" class="img-responsive">
+        <div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+           <a href='/movie/{{movie.id}}'><img src="{{ movie.poster }}" alt="{{ movie.title }} poster" class="img-responsive"></a>
             <li class="text-center">
                 <a href="/movie/{{movie.id}}">
                     {{ movie.title}}</a>

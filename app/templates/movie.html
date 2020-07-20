@@ -10,22 +10,29 @@
 
 {% endblock %}
 {% block content %}
-
+<div class="container-fluid">
     <!-- Poster background -->
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 posterPath" >
+ {% if video.key %}
             <div class="container">  
                <iframe width="630" height="425" class="responsive-iframe" src="https://www.youtube.com/embed/{{video.key}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+   </div>
+     {% else %}
+   <h2>No trailer.Come back soon</h2>
+{% endif %}
+
         </div>
         
 
       
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 movie-details">
             <h3>{{ movie.title }}</h3>
+        
 
             <p class="overview"> {{ movie.overview }}</p>
-            <p class="ratings"> <b> {{ movie.vote_average }}</b> - <i>{{ movie.vote_count}} votes </i> </p>
+            <p>Release Date:  {{movie.release_date}}</p>
+            <p class="ratings" class="label label-primary"> <b> {{ movie.vote_average }}</b> - <i>{{ movie.vote_count}} votes </i> </p>
             <a class="ratings" href="/movie/review/new/{{movie.id}}"> Write a new review</a>
             <br>
 
@@ -40,6 +47,8 @@
     
                 <a class="btn btn-success btn-lg text-center" href="/movie/review/new/{{movie.id}}"> Write a new review</a>
             {% endif %}
+         
+       
 
 
         
@@ -48,7 +57,43 @@
    
 
   
+    </div> 
+    
+    {%if movie.videos%}
+    <h1>Similar movies(<em style="font-size: small;"> click on any of the images below</em>)</h1>
+    <div id="slide-wrapper">
+        <img id="slideLeft" class="arrow" src="{{url_for('static', filename='images/arrow-left.png') }}">
+
+    <div id="slider">
+    {% for i in movie.videos %}
+   <a href="/movie/{{i.id}}"><img class="thumbnail" src='https://image.tmdb.org/t/p/w500/{{i.poster_path}}'/></a>
+
+{% endfor %}
+</div>
+<img id="slideRight" class="arrow" src="{{url_for('static', filename='images/arrow-right.png') }}">
+</div>
+
+{% endif %}
+
+
     </div>
 
+
+	<script type="text/javascript">
+	
+
+		let buttonRight = document.getElementById('slideRight');
+		let buttonLeft = document.getElementById('slideLeft');
+
+		buttonLeft.addEventListener('click', function(){
+			document.getElementById('slider').scrollLeft -= 180
+		})
+
+		buttonRight.addEventListener('click', function(){
+			document.getElementById('slider').scrollLeft += 180
+		})
+
+
+	</script>
 
 {% endblock %}
