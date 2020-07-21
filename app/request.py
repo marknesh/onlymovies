@@ -68,10 +68,11 @@ def get_movie(id):
             vote_count = movie_details_response.get('vote_count')
             release_date=movie_details_response.get('release_date')
             videos=movie_details_response.get('similar')['results']
+            backdrop_path=movie_details_response.get('backdrop_path')
         
 
         
-            movie_object = Movie(id,title,overview,poster,vote_average,vote_count,videos,release_date)
+            movie_object = Movie(id,title,overview,poster,vote_average,vote_count,videos,release_date,backdrop_path)
 
     return movie_object
             
@@ -153,9 +154,10 @@ def process_results(movie_list):
         vote_count = movie_item.get('vote_count')
         release_date = movie_item.get('videos')
         videos=movie_item.get('videos')
+        backdrop_path=movie_item.get('poster_path')
 
         if poster  :
-            movie_object = Movie(id,title,overview,poster,vote_average,vote_count,videos,release_date)
+            movie_object = Movie(id,title,overview,poster,vote_average,vote_count,videos,release_date,backdrop_path)
             movie_results.append(movie_object)
                    
     return movie_results
