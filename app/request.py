@@ -68,8 +68,10 @@ def get_movie(id):
             vote_count = movie_details_response.get('vote_count')
             release_date=movie_details_response.get('release_date')
             videos=movie_details_response.get('similar')['results']
-            backdrop_path=movie_details_response.get('backdrop_path')
-        
+            if(movie_details_response.get('backdrop_path')):
+                backdrop_path=movie_details_response.get('backdrop_path')
+            else:
+                backdrop_path='' 
 
         
             movie_object = Movie(id,title,overview,poster,vote_average,vote_count,videos,release_date,backdrop_path)
