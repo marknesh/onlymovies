@@ -47,6 +47,7 @@ footer{
 	font: bold 16px sans-serif;
 	padding: 30px 50px 10px 50px;
 	margin-top: 150px;
+	bottom: 0;
 }
 
 .footer-distributed .footer-left,
