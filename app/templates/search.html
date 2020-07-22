@@ -19,15 +19,25 @@
             <ul style="list-style-type: none;">
                 {{ macro.displayMovieList(movies)}}
             </ul>
-
-            {% else%}
-            <h3>sorry no results</h3>
-
-            {% endif%}
-
         </div>
 
     </div>
+            {{super()}}
+            {% else%}
+            <body style="background-color: white;">
+            
+            <h3 style="color: black;text-align: center;">Sorry no results</h3>
+            <div class="emoji" style="display: flex;
+            justify-content: center;
+            align-items: center;">
+            <img  src="https://i.pinimg.com/474x/75/ba/9a/75ba9aaf23bc7beeb46610e29d092b9a.jpg" class="img-responsive" />
+            </div>
+            </body>
+
+            {% endif%}
+
+     
+   
 
 
 {% endblock %}

@@ -32,7 +32,7 @@
 
             <p class="overview"> {{ movie.overview }}</p>
             <p>Release Date:  {{movie.release_date}}</p>
-            <p class="ratings" class="label label-primary"> Rating:<b> {{ movie.vote_average }}</b> - <i>{{ movie.vote_count}} votes </i> </p>
+            <p class="ratings" > Rating:<b><span class = "badge progress-bar-success">{{ movie.vote_average }}</span></b> - <i>{{ movie.vote_count}} votes </i> </p>
             <a class="ratings" href="/movie/review/new/{{movie.id}}"> Write a new review</a>
             <br>
 
@@ -95,6 +95,7 @@
 
 
     </script>
+    {{super()}}
     
 
 {% endblock %}
