@@ -62,7 +62,7 @@
     {%if movie.videos%}
     <h1>Similar movies(<em style="font-size: small;"> click on any of the images below</em>)</h1>
     <div id="slide-wrapper">
-        <img id="slideLeft" class="arrow" src="{{url_for('static', filename='images/arrow-left.png') }}">
+        <img id="slideLeft" style="filter: invert(100%);" class="arrow" src="{{url_for('static', filename='images/arrow-left.png') }}">
 
     <div id="slider">
     {% for i in movie.videos %}
@@ -70,7 +70,7 @@
 
 {% endfor %}
 </div>
-<img id="slideRight" class="arrow" src="{{url_for('static', filename='images/arrow-right.png') }}">
+<img id="slideRight" style="filter: invert(100%);" class="arrow" src="{{url_for('static', filename='images/arrow-right.png') }}">
 </div>
 
 {% endif %}

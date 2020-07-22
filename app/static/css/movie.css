@@ -57,13 +57,15 @@
 	width: 30px;
 	height: 30px;
 	cursor: pointer;
-	transition: .3s;
+  transition: .3s;
+  color:red;
 }
 
 .arrow:hover{
 	opacity: .5;
 	width: 35px;
-	height: 35px;
+  height: 35px;
+  filter: saturate(3);
 }
 
 
