@@ -5,10 +5,11 @@
     <div class="container">
 
         <div class="col-md-8">
-{% if backdrop_path%}
+{% if movie.backdrop_path %}
            <p><img  src="{{movie.backdrop_path}}" alt="{{movie.title}}" class="img-responsive"></p>
 
-   {% else %} 
+{% else %} 
+   <h2>sdx xc</h2>
 {% endif %}          
            <h2 >{{movie.title}}</h2>
         </div>
